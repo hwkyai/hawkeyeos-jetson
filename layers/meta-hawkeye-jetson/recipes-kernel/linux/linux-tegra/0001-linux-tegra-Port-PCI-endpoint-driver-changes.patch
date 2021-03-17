@@ -1,0 +1,39 @@
+From bdbd09c3f49603a437e757846edf6dc67ff08800 Mon Sep 17 00:00:00 2001
+From: Pelle van Gils <pelle@hwky.ai>
+Date: Tue, 16 Feb 2021 14:08:56 +0000
+Subject: [PATCH] linux-tegra: Port PCI endpoint driver changes
+
+Upstream-Status: Inappropriate[not author]
+Signed-off-by: Pelle van Gils <pelle@hwky.ai>
+---
+ nvidia/drivers/net/ethernet/nvidia/pcie/tegra_vnet.c       | 1 +
+ nvidia/drivers/pci/endpoint/functions/pci-epf-tegra-vnet.c | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/nvidia/drivers/net/ethernet/nvidia/pcie/tegra_vnet.c b/nvidia/drivers/net/ethernet/nvidia/pcie/tegra_vnet.c
+index 6f5cdd5107fa..eb61815a4d3a 100644
+--- a/nvidia/drivers/net/ethernet/nvidia/pcie/tegra_vnet.c
++++ b/nvidia/drivers/net/ethernet/nvidia/pcie/tegra_vnet.c
+@@ -600,6 +600,7 @@ static void tvnet_host_setup_bar0_md(struct tvnet_priv *tvnet)
+ static void tvnet_host_process_ctrl_msg(struct tvnet_priv *tvnet)
+ {
+ 	struct ctrl_msg msg;
++	memset(&msg, 0, sizeof(msg));
+ 
+ 	while (tvnet_ivc_rd_available(&tvnet->ep2h_ctrl)) {
+ 		tvnet_host_read_ctrl_msg(tvnet, &msg);
+diff --git a/nvidia/drivers/pci/endpoint/functions/pci-epf-tegra-vnet.c b/nvidia/drivers/pci/endpoint/functions/pci-epf-tegra-vnet.c
+index 8d0886d49c08..3e44ef4a311f 100644
+--- a/nvidia/drivers/pci/endpoint/functions/pci-epf-tegra-vnet.c
++++ b/nvidia/drivers/pci/endpoint/functions/pci-epf-tegra-vnet.c
+@@ -660,6 +660,7 @@ static const struct net_device_ops tvnet_netdev_ops = {
+ static void tvnet_ep_process_ctrl_msg(struct pci_epf_tvnet *tvnet)
+ {
+ 	struct ctrl_msg msg;
++	memset(&msg, 0, sizeof(msg));
+ 
+ 	while (tvnet_ivc_rd_available(&tvnet->h2ep_ctrl)) {
+ 		tvnet_ep_read_ctrl_msg(tvnet, &msg);
+-- 
+2.17.1
+

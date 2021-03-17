@@ -1,0 +1,33 @@
+From accaaa250de7d769ccea3e47e0b342ab6172974a Mon Sep 17 00:00:00 2001
+From: Pelle van Gils <pelle@hwky.ai>
+Date: Wed, 17 Feb 2021 17:28:49 +0100
+Subject: [PATCH] dts: t210: enable SMMU to fix QCA pcie wifi
+
+Some Qualcomm/Atheros PCIe wifi modules fail to load. re-enabling SMMU
+properties to fix it.
+
+Nvidia thread: https://forums.developer.nvidia.com/t/airetos-aex-qca9880-nx-wifi-module-on-jetson-nano/74626/19
+
+Upstream-Status: Inappropriate [configuration]
+Signed-off-by: Pelle van Gils <pelle@hwky.ai>
+---
+ .../porg/kernel-dts/porg-platforms/tegra210-porg-pcie.dtsi     | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/nvidia/platform/t210/porg/kernel-dts/porg-platforms/tegra210-porg-pcie.dtsi b/nvidia/platform/t210/porg/kernel-dts/porg-platforms/tegra210-porg-pcie.dtsi
+index 1b4cd54e73d6..7c96529c5ffd 100644
+--- a/nvidia/platform/t210/porg/kernel-dts/porg-platforms/tegra210-porg-pcie.dtsi
++++ b/nvidia/platform/t210/porg/kernel-dts/porg-platforms/tegra210-porg-pcie.dtsi
+@@ -19,9 +19,6 @@
+  */
+ / {
+ 	pcie@1003000 {
+-		/delete-property/ iommus;
+-		/delete-property/ iommu-map;
+-		/delete-property/ iommu-map-mask;
+ 		nvidia,wake-gpio = <&gpio TEGRA_GPIO(A, 2) 0>;
+ 		nvidia,pmc-wakeup = <&tegra_pmc
+ 				PMC_WAKE_TYPE_EVENT 0 PMC_TRIGGER_TYPE_LOW>;
+-- 
+2.30.1
+
