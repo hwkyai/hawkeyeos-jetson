@@ -3,8 +3,8 @@
 # based on https://www.embeddeduse.com/2019/05/06/yocto-builds-with-crops-containers/
 #
 
-set -o errexit
-set -o nounset
+set -eu
+[ "${DEBUG:=false}" = "true" ] && set -x
 
 this_script=$0
 crops=ubuntu-18.04
