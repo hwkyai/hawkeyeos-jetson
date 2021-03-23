@@ -78,7 +78,7 @@ init() {
     dockerinit "$this_script" _init
 }
 
-if echo "${1:-}" | grep -q -- "-h\|help\|usage"; then
+if echo "${1:-help}" | grep -q -- "-h\|help\|usage"; then
     print_usage
     exit 0
 fi
