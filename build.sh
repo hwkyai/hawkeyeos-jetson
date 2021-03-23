@@ -3,8 +3,8 @@
 # based on https://www.embeddeduse.com/2019/05/06/yocto-builds-with-crops-containers/
 #
 
-set -o errexit
-set -o nounset
+set -eu
+[ "${DEBUG:=false}" = "true" ] && set -x
 
 this_script=$0
 crops=ubuntu-18.04
@@ -25,9 +25,6 @@ HEREDOC
 }
 
 dockerinit() {
-    # The actual called command
-    RUN="${RUN};${@}"
-
     docker run --rm -it --pull always \
         -v "${PWD}":${workdir} \
         -v "$DL_DIR":${workdir}/downloads \
@@ -35,10 +32,9 @@ dockerinit() {
         -v "$SSTATE_DIR":${workdir}/sstate-cache \
         -e "SSTATE_DIR=${workdir}/sstate-cache" \
         -e "MACHINE=$MACHINE" \
-        -e "RUN=$RUN" \
         crops/poky:${crops} \
             --workdir=${workdir} \
-            bash -c "$RUN"
+            bash -c "${*}"
 }
 
 envsetup() {
@@ -82,7 +78,7 @@ init() {
     dockerinit "$this_script" _init
 }
 
-if echo "${1:-}" | grep -q -- "-h\|help\|usage"; then
+if echo "${1:-help}" | grep -q -- "-h\|help\|usage"; then
     print_usage
     exit 0
 fi
