@@ -25,9 +25,6 @@ HEREDOC
 }
 
 dockerinit() {
-    # The actual called command
-    RUN="${RUN};${@}"
-
     docker run --rm -it --pull always \
         -v "${PWD}":${workdir} \
         -v "$DL_DIR":${workdir}/downloads \
@@ -35,10 +32,9 @@ dockerinit() {
         -v "$SSTATE_DIR":${workdir}/sstate-cache \
         -e "SSTATE_DIR=${workdir}/sstate-cache" \
         -e "MACHINE=$MACHINE" \
-        -e "RUN=$RUN" \
         crops/poky:${crops} \
             --workdir=${workdir} \
-            bash -c "$RUN"
+            bash -c "${*}"
 }
 
 envsetup() {
