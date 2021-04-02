@@ -30,3 +30,7 @@
 	path = layers/meta-mender-community
 	url = https://github.com/mendersoftware/meta-mender-community.git
 	branch = dunfell
+[submodule "layers/meta-intel"]
+	path = layers/meta-intel
+	url = git://git.yoctoproject.org/meta-intel
+	branch = gatesgarth
