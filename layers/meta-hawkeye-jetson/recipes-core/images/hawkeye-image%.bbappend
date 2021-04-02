@@ -9,4 +9,6 @@ IMAGE_INSTALL_append = " \
     libnvidia-container-tools \
     nvidia-container-toolkit \
     nvidia-container-runtime \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'wifi', 'packagegroup-wifi-iwlwifi', '', d)} \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'wifi', 'packagegroup-wifi-ath10k', '', d)} \
     "
