@@ -29,7 +29,7 @@ $ cd /tmp/tegraflash
 $ sudo ./doflash.sh
 ```
 
-5. The device will now reboot into HawkeyeOS. You can connect via USB serial console with a baudrate of `115200`.
+5. The device will now reboot into HawkeyeOS. You can connect via USB serial console with a baudrate of `115200`. Once the device has booted you can login as user `hawkeye` with password `hawkeye`.
 
 [developers]:https://developers.hwky.ai
 
