@@ -1,4 +1,4 @@
-POKY_BBLAYERS_CONF_VERSION = "2"
+POKY_BBLAYERS_CONF_VERSION = "3"
 
 BBPATH = "${TOPDIR}"
 BBFILES ?= ""
@@ -22,6 +22,6 @@ BBLAYERS ?= " \
     ${TOPDIR}/../layers/meta-hawkeye-jetson \
     "
 
-# XXX temporary, until Mender supports gatesgarth
-LAYERSERIES_COMPAT_mender_append = " gatesgarth"
-LAYERSERIES_COMPAT_meta-mender-tegra_append = " gatesgarth"
+# XXX temporary, until Mender supports hardknott
+LAYERSERIES_COMPAT_mender_append = " hardknott"
+LAYERSERIES_COMPAT_meta-mender-tegra_append = " hardknott"
