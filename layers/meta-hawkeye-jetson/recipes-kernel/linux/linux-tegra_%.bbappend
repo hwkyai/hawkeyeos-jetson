@@ -8,7 +8,6 @@ SRC_URI_append = " \
 
 SRC_URI_append_photon = " \
     file://0001-cti-photon-merge-CDC-MBIM-driver-changes-from-bsp.patch \
-    file://0001-linux-tegra-Port-PCI-endpoint-driver-changes.patch \
     file://cti-photon.cfg \
 "
 
