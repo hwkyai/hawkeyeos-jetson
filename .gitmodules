@@ -1,27 +1,27 @@
 [submodule "layers/meta-hawkeye"]
 	path = layers/meta-hawkeye
 	url = ../meta-hawkeye.git
-	branch = gatesgarth
+	branch = hardknott
 [submodule "layers/poky"]
 	path = layers/poky
 	url = https://git.yoctoproject.org/git/poky
-	branch = gatesgarth
+	branch = hardknott
 [submodule "layers/meta-virtualization"]
 	path = layers/meta-virtualization
 	url = https://git.yoctoproject.org/git/meta-virtualization
-	branch = gatesgarth
+	branch = hardknott
 [submodule "layers/meta-oe"]
 	path = layers/meta-oe
 	url = https://git.openembedded.org/meta-openembedded
-	branch = gatesgarth
+	branch = hardknott
 [submodule "layers/meta-tegra"]
 	path = layers/meta-tegra
 	url = https://github.com/OE4T/meta-tegra.git
-	branch = gatesgarth
+	branch = hardknott
 [submodule "layers/tegra-demo-distro"]
 	path = layers/tegra-demo-distro
 	url = https://github.com/OE4T/tegra-demo-distro.git
-	 branch = gatesgarth
+	 branch = hardknott
 [submodule "layers/meta-mender"]
 	path = layers/meta-mender
 	url = https://github.com/mendersoftware/meta-mender.git
@@ -33,4 +33,4 @@
 [submodule "layers/meta-intel"]
 	path = layers/meta-intel
 	url = git://git.yoctoproject.org/meta-intel
-	branch = gatesgarth
+	branch = hardknott
