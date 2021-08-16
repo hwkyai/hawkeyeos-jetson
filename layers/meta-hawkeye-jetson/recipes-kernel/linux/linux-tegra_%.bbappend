@@ -16,6 +16,6 @@ SRC_URI_append_photon-nano = " \
 "
 
 SRCBRANCH = "tegra-l4t-r${L4T_VERSION}"
-SRCREV = "6e383afbaac78e015fade9cb57d78ec7dbcb5244"
+SRCREV = "76e8cd5c8175ec147258315b56bdf1830bc663de"
 
 SRC_REPO = "github.com/hwkyai/linux-tegra-4.9;protocol=https"
