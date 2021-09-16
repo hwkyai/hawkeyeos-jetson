@@ -15,6 +15,14 @@ SRC_URI_append_photon-nano = " \
     file://0001-dts-t210-enable-SMMU-to-fix-QCA-pcie-wifi.patch \
 "
 
+SRC_URI_append_boxer-nano = " \
+    file://0001-nvidia-t210-enable-sdmmc3.patch \
+"
+
+SRC_URI_append_boxer-nx = " \
+    file://0002-nvidia-t194-enable-sdmmc3.patch \
+"
+
 SRCBRANCH = "tegra-l4t-r${L4T_VERSION}"
 SRCREV = "76e8cd5c8175ec147258315b56bdf1830bc663de"
 
