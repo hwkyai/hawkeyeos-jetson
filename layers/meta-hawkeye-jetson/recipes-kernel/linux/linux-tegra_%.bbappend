@@ -24,6 +24,6 @@ SRC_URI_append_boxer-nx = " \
 "
 
 SRCBRANCH = "tegra-l4t-r${L4T_VERSION}"
-SRCREV = "76e8cd5c8175ec147258315b56bdf1830bc663de"
+SRCREV = "7f533191580329d2c1971d37dd8f26aceabe1ab0"
 
 SRC_REPO = "github.com/hwkyai/linux-tegra-4.9;protocol=https"
